@@ -1,3 +1,11 @@
+import 'cypress-iframe'
+Cypress.Commands.add('getIframe', (iframeSelector) => {
+    return cy
+      .get(iframeSelector)
+      .its('0.contentDocument.body')
+      .should('not.be.empty')
+      .then(cy.wrap);
+  })
 // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite

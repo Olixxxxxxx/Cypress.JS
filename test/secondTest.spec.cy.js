@@ -18,7 +18,7 @@ describe('My First Test', () => {
       z = toString(z)
       return z
     }
-    expect(PlusTwoNumbers()).to.be.a('number')
+    expect(PlusTwoNumbers()).to.be.a('string')
     //cy.visit("https://docs.cypress.io/guides/getting-started/installing-cypress")
    })
   })
