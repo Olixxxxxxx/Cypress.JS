@@ -100,17 +100,32 @@ for(i = 0; i < states.length;i++){
 // }
 // console.log(Worker.MyData())
 //let cars = new Array()
-const autopark = {
-    cars : [{name: 'car1.1', age: 7},{name: 'car2.2', age: 9},{name: 'car3.3', age: 15}],
-    buses : [{name: 'bus1.1', age: 6},{name: 'bus2.2', age: 8},{name: 'bus3.3', age: 5}],
-    airplanes : [{name: 'airplane1.1', age: 3},{name: 'airplane2.2', age: 11},{name: 'airplane3.3', age: 3}],
-    avgAge(type){
-            let TotalAge = 0
-            for(i = 0; i < type.length - 1; i++) {
-                TotalAge += type[i].age
-                }
-                return (TotalAge/(type.length - 1)).toFixed(1)
-            }
-    }
+// const autopark = {
+//     cars : [{name: 'car1.1', age: 7},{name: 'car2.2', age: 9},{name: 'car3.3', age: 15}],
+//     buses : [{name: 'bus1.1', age: 6},{name: 'bus2.2', age: 8},{name: 'bus3.3', age: 5}],
+//     airplanes : [{name: 'airplane1.1', age: 3},{name: 'airplane2.2', age: 11},{name: 'airplane3.3', age: 3}],
+//     avgAge(type){
+//             let TotalAge = 0
+//             for(i = 0; i < type.length - 1; i++) {
+//                 TotalAge += type[i].age
+//                 }
+//                 return (TotalAge/(type.length - 1)).toFixed(1)
+//             }
+//     }
 
- console.log(autopark.avgAge(autopark.airplanes))
+//  console.log(autopark.avgAge(autopark.airplanes))
+//Homework Objects Constructors
+function Books2015(name, author, genre){
+    this.name = name
+    this.author = author
+    this.year = 2015
+    this.genre = genre
+}
+const newBook = new Books2015("River","J.Jackson","triller")
+newBook.language = "English"
+newBook.age = function(){
+    let currentyear = new Date().getFullYear()
+    return `This book is ${currentyear - this.year} years old`
+}
+console.log(newBook.age())
+//console.log(newBook)
