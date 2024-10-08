@@ -3,17 +3,17 @@ describe('Registration & Authorization Form', () => {
        newUserForm()
        cy.contains('Sign In').should('exist')
     })
-    // it('Log in to account', () => {
-    //     logInWithData()
-    //     cy.contains('Sign Out').should('exist')
-    //  })
-    //  it('User Data Validation', () => {
-    //     verifyUserDataInAccount()
-    //  })
-    //  it('Update User Data', () => {
-    //     updateUserData()
-    //     cy.log('User Data Updated')
-    //  })
+    it('Log in to account', () => {
+        logInWithData()
+        cy.contains('Sign Out').should('exist')
+     })
+     it('User Data Validation', () => {
+        verifyUserDataInAccount()
+     })
+     it('Update User Data', () => {
+        updateUserData()
+        cy.log('User Data Updated')
+     })
      it('Create an Order', () => {
         logInWithData()
         cy.get('#SidebarContent a[href="/actions/Catalog.action?viewCategory=&categoryId=FISH"]').click()
@@ -66,7 +66,6 @@ describe('Registration & Authorization Form', () => {
         cy.get('tr').eq(24).find('td').contains('Status: P').should('exist')
         cy.get('tr').eq(25).find('td').eq(1).find('a').should('have.attr','href',`${order.item.link}`).and('have.text',`${order.item.code}`)
         cy.get('tr').eq(25).find('td').eq(2).invoke('text').should('match', /Small\s+Angelfish/)
-        //cy.get('tr').eq(25).find('td').eq(2).should('include.text', 'Small').and('include.text', 'Angelfish')
         cy.get('tr').eq(25).find('td').eq(3).should('have.text',`${order.count}`)
         cy.get('tr').eq(25).find('td').eq(4).should('have.text',`$${(order.item.itemPrice).toFixed(2)}`)
         cy.get('tr').eq(25).find('td').eq(5).should('have.text',`$${order.totalPrice()}`)
